@@ -8,6 +8,7 @@ public class CheckOut {
   }
   
   public void startBuild() {
+    steps.echo "Hi......${steps}"
     git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"
   }
 }

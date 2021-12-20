@@ -8,6 +8,7 @@ public class CheckOut {
   }
   
   public void startBuild(def conf = [:]) {
+    steps.echo '"CheckOut Startbuild is called"'
     steps.echo "${steps} ${conf.url}  ${conf.branch}"    
     steps.checkout([
                     $class: 'GitSCM',

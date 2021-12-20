@@ -22,12 +22,12 @@ def mvnBuild = new MVNBuild(this)
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
-                   //checkOut.startBuild(conf)
-                   checkout([
+                   checkOut.startBuild(conf)
+                   /*checkout([
                     $class: 'GitSCM',
                     branches: [[name:  conf.branch ]],
                     userRemoteConfigs: [[ url: conf.url ]]
-                  ])
+                  ])*/
                  }
                }
            }

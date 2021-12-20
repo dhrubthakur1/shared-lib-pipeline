@@ -4,7 +4,7 @@ import com.build.MVNBuild;
 def checkOut = new CheckOut(this)
 def mvnBuild = new MVNBuild(this)
 def call() {
-	println("Start...")
+  echo "Start..."
   pipeline {
        agent any
        tools {

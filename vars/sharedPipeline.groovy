@@ -2,6 +2,6 @@ def call(String name = 'User') {
  echo "Welcome, ${name}."
 }
 
-def test(String name = 'User') {
+def testShared(String name = 'User') {
  echo "Test, ${name}."
 }

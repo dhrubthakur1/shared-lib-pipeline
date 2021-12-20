@@ -29,7 +29,11 @@ def mvnBuild = new MVNBuild(this)
            stage("Cleaning workspace") {
                steps {
                    //bat "mvn clean"
-                 mvnBuild.startBuild()
+                 script{                   
+                   bat 'echo "${mvnBuild}"'
+                   bat 'echo "Build...."' 
+                    mvnBuild.startBuild()
+                 }
                }
            }
            stage("Running Testcase") {

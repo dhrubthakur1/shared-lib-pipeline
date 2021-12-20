@@ -11,8 +11,8 @@ public class CheckOut {
     steps.echo "${steps} ${conf.url}  ${conf.branch}"
     checkout([
         $class: 'GitSCM',
-        branches: [[name:  'main' ]],
-        userRemoteConfigs: [[ url: 'https://github.com/dhrubthakur1/spring4-mvc-example.git' ]]
+        branches: [[name:  conf.branch ]],
+        userRemoteConfigs: [[ url: conf.url ]]
     ])
     //steps.git url:conf.url, branch:conf.branch
     //steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"   

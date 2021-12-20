@@ -9,11 +9,11 @@ public class CheckOut {
   
   public void startBuild() {
     steps.echo "Hi......${steps}"
-    checkout([
+    /*checkout([
         $class: 'GitSCM',
         branches: [[name:  'main' ]],
         userRemoteConfigs: [[ url: 'https://github.com/dhrubthakur1/spring4-mvc-example.git' ]]
-    ])
-    //git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"
+    ])*/
+    sheps.sh 'git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"'
   }
 }

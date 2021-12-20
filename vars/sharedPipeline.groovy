@@ -1,7 +1,7 @@
 import com.checkout.CheckOut;
 import com.build.MVNBuild;
 
-def call() {
+def call(def conf [:]) {
   def checkOut = new CheckOut(this)
 def mvnBuild = new MVNBuild(this)
   pipeline {
@@ -21,7 +21,7 @@ def mvnBuild = new MVNBuild(this)
                steps {
                  script{                   
                    bat 'echo "${checkOut}"'
-                   bat 'echo "hi...."'                   
+                   bat "echo ${conf.url}"
                    checkOut.startBuild()
                  }
                }

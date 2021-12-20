@@ -21,8 +21,9 @@ def call() {
            stage("Checkout Code") {
                steps {
                  script{
-                   bat 'echo "hi...."'
                    bat "echo ${checkOut}"
+                   bat 'echo "${checkOut}"'
+                   bat 'echo "hi...."'                   
                    checkOut.startBuild()
                  }
                }

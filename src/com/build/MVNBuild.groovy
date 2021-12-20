@@ -8,6 +8,7 @@ public class MVNBuild{
   }
   
   public void startBuild() {
+     steps.echo "Build called......${steps}"
     steps.bat "mvn clean package"
   }
 }

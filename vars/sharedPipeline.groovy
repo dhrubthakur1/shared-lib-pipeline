@@ -22,7 +22,7 @@ def mvnBuild = new MVNBuild(this)
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
-                   checkOut.startBuild()
+                   checkOut.startBuild(conf)
                  }
                }
            }

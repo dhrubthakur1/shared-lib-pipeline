@@ -1,5 +1,5 @@
 def call(String name = 'User') {
- echo "Welcome, ${name}."
+ echo "Welcome shared, ${name}."
 }
 
 def testShared(String name = 'User') {

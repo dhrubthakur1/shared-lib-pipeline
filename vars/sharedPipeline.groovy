@@ -1,10 +1,9 @@
 import com.checkout.CheckOut;
 import com.build.MVNBuild;
 
-def checkOut = new CheckOut(this)
-def mvnBuild = new MVNBuild(this)
-
 def call() {
+  def checkOut = new CheckOut(this)
+def mvnBuild = new MVNBuild(this)
   pipeline {
        agent any
        tools {

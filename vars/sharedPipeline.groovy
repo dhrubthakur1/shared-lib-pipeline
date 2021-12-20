@@ -21,6 +21,7 @@ def call() {
            stage("Checkout Code") {
                steps {
                  script{
+                   echo "checkout called..... ${checkOut}"
                    checkOut.startBuild()
                  }
                }

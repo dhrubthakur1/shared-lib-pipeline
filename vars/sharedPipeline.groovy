@@ -8,8 +8,8 @@ def call() {
   pipeline {
        agent any
        tools {
-           maven 'Maven 3.5.0'
-           jdk 'jdk8'
+           maven 'MAVEN_PATH'
+          jdk 'JAVA_HOME'
        }
        stages {
            stage("Tools initialization") {
@@ -20,7 +20,9 @@ def call() {
            }
            stage("Checkout Code") {
                steps {
+                 script{
                    checkOut.startBuild()
+                 }
                }
            }
            stage("Cleaning workspace") {

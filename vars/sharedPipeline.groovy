@@ -3,7 +3,8 @@ import com.build.MVNBuild;
 
 def checkOut = new CheckOut(this)
 def mvnBuild = new MVNBuild(this)
-def call(String repoUrl) {
+def call() {
+	println("Start...")
   pipeline {
        agent any
        tools {

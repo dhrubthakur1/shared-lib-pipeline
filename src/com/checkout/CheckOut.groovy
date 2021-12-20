@@ -7,13 +7,9 @@ public class CheckOut {
     this.steps = steps
   }
   
-  public void startBuild() {
+  public void startBuild(def conf = [:]) {
     steps.echo "Hi......${steps}"
-    /*checkout([
-        $class: 'GitSCM',
-        branches: [[name:  'main' ]],
-        userRemoteConfigs: [[ url: 'https://github.com/dhrubthakur1/spring4-mvc-example.git' ]]
-    ])*/
-    steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"
+    //steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"
+    steps.git url:conf.url, branch:conf.branch
   }
 }

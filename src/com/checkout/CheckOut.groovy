@@ -14,6 +14,6 @@ public class CheckOut {
         branches: [[name:  'main' ]],
         userRemoteConfigs: [[ url: 'https://github.com/dhrubthakur1/spring4-mvc-example.git' ]]
     ])*/
-    sheps.sh 'git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"'
+    steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"
   }
 }

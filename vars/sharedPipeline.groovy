@@ -37,18 +37,20 @@ def mvnBuild = new MVNBuild(this)
                  script{                   
                    bat 'echo "${mvnBuild}"'
                    bat 'echo "Build...."' 
-                    mvnBuild.startBuild()
+                    mvnBuild.clean()
                  }
                }
            }
            stage("Running Testcase") {
               steps {
-                   bat "mvn test"
+                   //bat "mvn test"
+                  mvnBuild.mvnTest()
                }
            }
            stage("Packing Application") {
                steps {
-                   bat "mvn package -DskipTests"
+                   //bat "mvn package -DskipTests"
+                  mvnBuild.startBuild()
                }
            }
        }

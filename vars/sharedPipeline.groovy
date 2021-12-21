@@ -44,13 +44,17 @@ def mvnBuild = new MVNBuild(this)
            stage("Running Testcase") {
               steps {
                    //bat "mvn test"
+                script{
                   mvnBuild.mvnTest()
+                }
                }
            }
            stage("Packing Application") {
                steps {
                    //bat "mvn package -DskipTests"
+                 script{
                   mvnBuild.startBuild()
+                 }
                }
            }
        }

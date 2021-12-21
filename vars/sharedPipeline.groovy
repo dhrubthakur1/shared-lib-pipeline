@@ -57,6 +57,12 @@ def mvnBuild = new MVNBuild(this)
                  }
                }
            }
+        stage ('Archive Artifacts') {
+          steps {
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            cleanWs()
+      }
+    }
        }
    }
 }

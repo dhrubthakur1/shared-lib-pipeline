@@ -59,10 +59,21 @@ def mvnBuild = new MVNBuild(this)
            }
         stage ('Archive Artifacts') {
           steps {
-            archiveArtifacts artifacts: 'target/*.war', fingerprint: true
-            cleanWs()
-      }
-    }
+            script{
+              mvnBuild.archive()
+            }
+            //archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+            //cleanWs()
+          }
+        }
+       stage("Deploy"){
+            steps{              
+              script{
+                mvnBuild.deploy(conf)
+              }
+                //deploy adapters: [tomcat8(credentialsId: 'tomcatadmin', path: '', url: 'http://localhost:7070')], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'                
+            }
+        }
        }
    }
 }

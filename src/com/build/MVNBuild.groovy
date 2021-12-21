@@ -21,4 +21,14 @@ public class MVNBuild{
      steps.echo "Build called......${steps}"
     steps.bat "mvn clean package  -DskipTests"
   }
+  
+  public void archive() {
+     steps.echo "Archive called......${steps}"
+    steps.archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+  }
+  
+  public void deploy() {
+     steps.echo "Deploy called......${steps}"
+    steps.deploy adapters: [tomcat8(credentialsId: 'tomcatadmin', path: '', url: conf.tomcatUrl)], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'
+  }
 }

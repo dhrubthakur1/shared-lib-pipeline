@@ -30,6 +30,6 @@ public class MVNBuild{
   
   public void deploy(def conf = [:]) {
      steps.echo "Deploy called......${steps}"
-    steps.deploy adapters: [tomcat8(credentialsId: 'tomcatadmin', path: '', url: conf.tomcatUrl)], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'
+    steps.deploy adapters: [steps.tomcat8(credentialsId: 'tomcatadmin', path: '', url: conf.tomcatUrl)], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'
   }
 }

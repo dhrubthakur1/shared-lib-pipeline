@@ -1,4 +1,5 @@
 package com.build;
+import hudson.plugins.deploy.tomcat.*;
 
 public class MVNBuild{
   def steps

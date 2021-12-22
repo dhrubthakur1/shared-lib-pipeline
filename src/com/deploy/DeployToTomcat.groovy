@@ -9,8 +9,7 @@ public class DeployToTomcat{
   
     
   public void deploy(def conf = [:]) {
-     steps.echo "Deploy called......${steps}"
+     steps.echo "Deploy to tomcat called......${steps}"
     steps.deploy adapters: [steps.tomcat8(credentialsId: conf.tomcatId, path: '', url: conf.tomcatUrl)], contextPath: conf.contextPath, onFailure: false, war: 'target/*.war'
-    //steps.deploy adapters: [steps.tomcat8(credentialsId: conf.tomcatId, path: '', url: conf.tomcatUrl)], contextPath: conf.contextPath, onFailure: false, war: 'target/helloworld.war'
   }
 }

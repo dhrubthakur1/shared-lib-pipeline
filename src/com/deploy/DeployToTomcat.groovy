@@ -1,4 +1,4 @@
-package com.build;
+package com.deploy;
 
 public class DeployToTomcat{
   def steps

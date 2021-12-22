@@ -27,9 +27,4 @@ public class MVNBuild{
      steps.echo "Archive called......${steps}"
     steps.archiveArtifacts artifacts: 'target/*.war', fingerprint: true
   }
-  
-  public void deploy(def conf = [:]) {
-     steps.echo "Deploy called......${steps}"
-    steps.deploy adapters: [steps.tomcat8(credentialsId: conf.tomcatId, path: '', url: conf.tomcatUrl)], contextPath: 'spring5', onFailure: false, war: 'target/helloworld.war'
-  }
 }

@@ -2,8 +2,9 @@ import com.checkout.CheckOut;
 import com.build.MVNBuild;
 
 def call(def conf=[:]) {
-  def checkOut = new CheckOut(this)
-def mvnBuild = new MVNBuild(this)
+	def checkOut = new CheckOut(this)
+	def mvnBuild = new MVNBuild(this)
+	def deployToTomcat = new DeployToTomcat(this)
   pipeline {
        agent any
        tools {
@@ -69,7 +70,7 @@ def mvnBuild = new MVNBuild(this)
        stage("Deploy"){
             steps{              
               script{
-                mvnBuild.deploy(conf)
+		deployToTomcat.deploy(conf)
               }
                 //deploy adapters: [tomcat8(credentialsId: 'tomcatadmin', path: '', url: 'http://localhost:7070')], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'                
             }

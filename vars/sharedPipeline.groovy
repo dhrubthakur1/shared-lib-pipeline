@@ -1,5 +1,6 @@
 import com.checkout.CheckOut;
 import com.build.MVNBuild;
+import com.deploy.DeployToTomcat;
 
 def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)

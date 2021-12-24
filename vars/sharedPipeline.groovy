@@ -1,11 +1,13 @@
 import com.checkout.CheckOut;
 import com.build.MVNBuild;
 import com.deploy.DeployToTomcat;
+import groovy.yaml.YamlSlurper;
 
 def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
+	
   pipeline {
        agent any
        tools {
@@ -25,6 +27,8 @@ def call(def conf=[:]) {
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
                    checkOut.startBuild(conf)
+		   def datas = readYaml file: 'build.yml'
+		   bat 'echo "${datas}"'
                    /*checkout([
                     $class: 'GitSCM',
                     branches: [[name:  conf.branch ]],

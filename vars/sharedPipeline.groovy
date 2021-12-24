@@ -8,6 +8,9 @@ def call(def conf=[:]) {
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
 	
+	def data = readYaml file: 'build.yml'
+	println(data)
+	
   pipeline {
        agent any
        tools {

@@ -26,7 +26,7 @@ def call(def conf=[:]) {
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
-                   checkOut.startBuild(conf)
+                  // checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
 		   def datas = readYaml file: 'build.yml'
 		   bat 'echo "read yml start"'

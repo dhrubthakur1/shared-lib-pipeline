@@ -1,7 +1,7 @@
 import com.checkout.CheckOut;
 import com.build.MVNBuild;
 import com.deploy.DeployToTomcat;
-import groovy.yaml.YamlSlurper;
+//import groovy.yaml.YamlSlurper;
 
 def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)

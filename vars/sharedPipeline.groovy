@@ -7,9 +7,6 @@ def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
-	checkOut.startBuild(conf)
-	def data = readYaml file: 'build.yml'
-	println(data);
 	
   pipeline {
        agent any
@@ -29,7 +26,7 @@ def call(def conf=[:]) {
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
-                  // checkOut.startBuild(conf)
+                   checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
 		   def datas = readYaml file: 'build.yml'
 		   bat 'echo "read yml start"'

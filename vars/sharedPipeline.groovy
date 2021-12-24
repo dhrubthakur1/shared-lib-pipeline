@@ -8,9 +8,6 @@ def call(def conf=[:]) {
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
 	
-	def data = readYaml file: 'build.yml'
-	println(data)
-	
   pipeline {
        agent any
        tools {
@@ -24,24 +21,7 @@ def call(def conf=[:]) {
                    bat "java -version"
                }
            }
-           stage("Checkout Code") {
-               steps {
-                 script{                   
-                   bat 'echo "${checkOut}"'
-                   bat "echo ${conf.url}"
-                  // checkOut.startBuild(conf)
-		   bat 'echo "read yml start"'
-		   def datas = readYaml file: 'build.yml'
-		   bat 'echo "read yml start"'
-		   bat 'echo datas'
-                   /*checkout([
-                    $class: 'GitSCM',
-                    branches: [[name:  conf.branch ]],
-                    userRemoteConfigs: [[ url: conf.url ]]
-                  ])*/
-                 }
-               }
-           }
+
            stage("Cleaning workspace") {
                steps {
                    //bat "mvn clean"

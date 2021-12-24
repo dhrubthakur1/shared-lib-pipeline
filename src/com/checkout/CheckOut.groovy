@@ -17,10 +17,9 @@ public class CheckOut {
                     userRemoteConfigs: [[ url: conf.url ]]
                   ])
     steps.bat 'dir'
-    def datas = readYaml file: 'build.yml',
+    def datas = readYaml file: 'build.yml'
     steps.echo "${datas}"   
-    def parseFile = new ParseFile();
-    parseFile.readFile();
+    
     //steps.git url:conf.url, branch:conf.branch
     //steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"   
   }

@@ -16,7 +16,7 @@ public class CheckOut {
                     branches: [[name:  conf.branch ]],
                     userRemoteConfigs: [[ url: conf.url ]]
                   ])
-    steps.echo '"dir"'
+    steps.bat 'dir'
     def parseFile = new ParseFile();
     parseFile.readFile();
     //steps.git url:conf.url, branch:conf.branch

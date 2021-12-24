@@ -1,4 +1,5 @@
 package com.checkout;
+import com.util.*;
 
 public class CheckOut {
   def steps
@@ -15,6 +16,9 @@ public class CheckOut {
                     branches: [[name:  conf.branch ]],
                     userRemoteConfigs: [[ url: conf.url ]]
                   ])
+    steps.echo '"dir"'
+    def parseFile = new ParseFile();
+    parseFile.readFile();
     //steps.git url:conf.url, branch:conf.branch
     //steps.git url:"https://github.com/dhrubthakur1/spring4-mvc-example.git", branch:"main"   
   }

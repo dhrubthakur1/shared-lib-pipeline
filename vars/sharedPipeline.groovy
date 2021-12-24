@@ -30,8 +30,9 @@ def call(def conf=[:]) {
 		   bat 'echo "read yml start"'
 		   def datas = readYaml (file: 'build.yml') 
 		   bat 'echo "read yml start"'
-		   bat 'echo datas'
-			 bat "echo ${datas}"
+		   bat "echo ${datas}"
+		   bat "echo ${datas.application.buildRequired}"
+	           bat "echo ${datas.application.buildType}"
                    /*checkout([
                     $class: 'GitSCM',
                     branches: [[name:  conf.branch ]],

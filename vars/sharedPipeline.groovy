@@ -22,10 +22,11 @@ def call(def conf=[:]) {
                }
            }
 	   stage("Checkout Code") {
-               steps {
+               steps {		       
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
+		   bat "echo {conf}"
                    checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
 		   def datas = readYaml (file: 'build.yml') 

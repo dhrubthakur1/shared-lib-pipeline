@@ -2,11 +2,13 @@ import com.checkout.CheckOut;
 import com.build.MVNBuild;
 import com.deploy.DeployToTomcat;
 //import groovy.yaml.YamlSlurper;
+import com.util.ParseFile;
 
 def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
+	def parseFile = new ParseFile(this);
 	
   pipeline {
        agent any

@@ -26,16 +26,15 @@ def call(def conf=[:]) {
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
-		   bat "echo ${conf}"
-                   checkOut.startBuild(conf)
+		   checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
 		   def datas = readYaml (file: 'build.yml') 
 		   bat 'echo "read yml start"'
 		   bat "echo ${datas}"
 		   bat "echo ${datas.application.buildRequired}"
 	           bat "echo ${datas.application.buildType}"
-		   conf.put('datas.application.buildRequired', ${datas.application.buildRequired})
-		   conf.put('datas.application.buildType', ${datas.application.buildType})
+		   bat "echo conf.put('datas.application.buildRequired', ${datas.application.buildRequired})"
+		   bat echo "conf.put('datas.application.buildType', ${datas.application.buildType})"
 		   bat "echo Hi......."
 		   bat "echo conf.get('datas.application.buildRequired')"
 		   bat "echo conf.datas.application.buildRequired"

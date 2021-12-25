@@ -38,8 +38,7 @@ def call(def conf=[:]) {
 		  bat "echo ${env.buildRequired}"
 		bat "echo hi...." 
 		 
-		}
-	       }
+		}	      
 	 }
        }
    }

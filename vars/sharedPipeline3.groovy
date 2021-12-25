@@ -30,8 +30,8 @@ def call(def conf=[:]) {
                steps {		       
                  script{                                      
                    bat "echo ${conf.url}"
-		               checkOut.startBuild(conf)
-		              }
+		   checkOut.startBuild(conf)
+		   }
                }
            }
            stage("Running Testcase") {
@@ -67,7 +67,7 @@ def call(def conf=[:]) {
        stage("Deploy"){
             steps{              
               script{
-		//ployToTomcat.deploy(conf)
+		ployToTomcat.deploy(conf)
               }
                 //deploy adapters: [tomcat8(credentialsId: 'tomcatadmin', path: '', url: 'http://localhost:7070')], contextPath: 'spring4', onFailure: false, war: 'target/helloworld.war'                
             }

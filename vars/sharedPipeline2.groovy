@@ -37,7 +37,7 @@ def call(def conf=[:]) {
 	           bat "echo ${datas.application.buildType}"
 			bat "echo ${env.buildRequired}"
 	           env.buildRequired="${datas.application.buildRequired}"
-		   bat "echo printenv"
+			 bat "echo ${printenv}"
 		  bat "echo ${env.buildRequired}"
                  }
                }

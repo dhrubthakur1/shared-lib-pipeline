@@ -47,7 +47,7 @@ def call(def conf=[:]) {
 		   conf.put('isBuildRequired', datas.application.buildRequired);
 		   bat "echo ${conf.isBuildRequired}"
 		  bat "echo ${env.buildRequired}"
-		bat "echo hi...." 
+			 bat "echo hi....${conf}" 
 		 
 		}
 	       }
@@ -56,7 +56,7 @@ def call(def conf=[:]) {
               steps {
                    //bat "mvn test"
                 script{
-                  if(conf.isBuildRequired == "Yes"){
+                  if(conf.isBuildRequired == "No"){
                   mvnBuild.mvnTest()
                   }
                 }

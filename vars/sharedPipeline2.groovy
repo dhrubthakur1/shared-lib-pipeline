@@ -8,7 +8,7 @@ def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
-	def parseFile = new ParseFile(this);
+	def parseFile = new ParseFile();
 	
   pipeline {
        agent any

@@ -4,13 +4,13 @@ package com.util;
 public class ParseFile{
 
 	public ParseFile(){
-		System.out.println("ParseFile called");
+		bat "echo ParseFile called";
 	}
 	public void readFile(){
-		System.out.println("ParseFile readFile called");
+		bat "echo ParseFile readFile called";
 		//def config = new YamlSlurper().parseText("C:/Users/66480/.jenkins/workspace/shared-lib-spec/build.yml")
 		def config = readYaml(file: "C:/Users/66480/.jenkins/workspace/shared-lib-spec/build.yml")
 				 
-		System.out.println(config);
+		bat "echo ${config}"
 	}
 }

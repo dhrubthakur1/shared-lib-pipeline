@@ -12,17 +12,6 @@ def call(def conf=[:]) {
 	
   pipeline {
        agent any
-       tools {
-           maven 'MAVEN_PATH'
-          jdk 'JAVA_HOME'
-       }
-       stages {
-           stage("Tools initialization") {
-               steps {
-                   bat "mvn --version"
-                   bat "java -version"
-               }
-           }
 	   stage("Checkout Code") {
                steps {		       
                  script{                   

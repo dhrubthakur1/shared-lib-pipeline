@@ -30,7 +30,14 @@ def call(def conf=[:]) {
                    bat "echo ${conf.url}"
 		   checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
-		   def datas = readYaml (file: 'build.yml') 
+		   
+                 }
+               }
+           }  
+	 stage("Set Config") {
+               steps {		       
+                 script{  
+			def datas = readYaml (file: 'build.yml') 
 		   bat 'echo "read yml start"'
 		   bat "echo ${datas}"
 		   bat "echo ${datas.application.buildRequired}"
@@ -40,10 +47,11 @@ def call(def conf=[:]) {
 			 conf.put('aa', datas.application.buildRequired);
 			    bat "echo ${conf.aa}"
 		  bat "echo ${env.buildRequired}"
-		bat "echo hi...."
-                 }
-               }
-           }       
+		bat "echo hi...." 
+		 
+		}
+	       }
+	 }
        }
    }
 }

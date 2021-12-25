@@ -12,6 +12,8 @@ def call(def conf=[:]) {
 	
   pipeline {
        agent any
+     
+       stages {         
 	   stage("Checkout Code") {
                steps {		       
                  script{                   
@@ -38,7 +40,8 @@ def call(def conf=[:]) {
 		  bat "echo ${env.buildRequired}"
 		bat "echo hi...." 
 		 
-		}	      
+		}
+	       }
 	 }
        }
    }

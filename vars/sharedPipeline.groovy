@@ -35,8 +35,8 @@ def call(def conf=[:]) {
 	           bat "echo ${datas.application.buildType}"
 		   conf.put('datas.application.buildRequired', ${datas.application.buildRequired})
 		   conf.put('datas.application.buildType', ${datas.application.buildType})
-		   bat "echo ${conf.get('datas.application.buildRequired')}"
-		   bat "echo ${conf.datas.application.buildRequired}"
+		   bat "echo conf.get('datas.application.buildRequired')"
+		   bat "echo conf.datas.application.buildRequired"
                    /*checkout([
                     $class: 'GitSCM',
                     branches: [[name:  conf.branch ]],

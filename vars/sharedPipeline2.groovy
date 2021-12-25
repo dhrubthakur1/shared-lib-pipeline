@@ -2,13 +2,13 @@ import com.checkout.CheckOut;
 import com.build.MVNBuild;
 import com.deploy.DeployToTomcat;
 //import groovy.yaml.YamlSlurper;
-import com.util.ParseFile;
+//import com.util.ParseFile;
 
 def call(def conf=[:]) {
 	def checkOut = new CheckOut(this)
 	def mvnBuild = new MVNBuild(this)
 	def deployToTomcat = new DeployToTomcat(this)
-	def parseFile = new ParseFile();
+	//def parseFile = new ParseFile();
 	
   pipeline {
        agent any
@@ -37,7 +37,7 @@ def call(def conf=[:]) {
 	           bat "echo ${datas.application.buildType}"
 			bat "echo ${env.buildRequired}"
 	           env.buildRequired="${datas.application.buildRequired}"
-		   bat "echo ${env}"
+		   bat "echo printenv"
 		  bat "echo ${env.buildRequired}"
                  }
                }

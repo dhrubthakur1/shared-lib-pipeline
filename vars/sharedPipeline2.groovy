@@ -40,6 +40,7 @@ def call(def conf=[:]) {
 			 conf.put('aa', datas.application.buildRequired);
 			    bat "echo ${conf.aa}"
 		  bat "echo ${env.buildRequired}"
+		bat "echo hi...."
                  }
                }
            }       

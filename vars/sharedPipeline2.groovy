@@ -12,8 +12,17 @@ def call(def conf=[:]) {
 	
   pipeline {
        agent any
-     
+     tools {
+           maven 'MAVEN_PATH'
+          jdk 'JAVA_HOME'
+       }	  
        stages {         
+	   stage("Tools initialization") {
+               steps {
+                   bat "mvn --version"
+                   bat "java -version"
+               }
+           }
 	   stage("Checkout Code") {
                steps {		       
                  script{                   
@@ -43,6 +52,16 @@ def call(def conf=[:]) {
 		}
 	       }
 	 }
+	stage("Running Testcase") {
+              steps {
+                   //bat "mvn test"
+                script{
+                  if(conf.isBuildRequired == "Yes"){
+                  mvnBuild.mvnTest()
+                  }
+                }
+               }
+           }
        }
    }
 }

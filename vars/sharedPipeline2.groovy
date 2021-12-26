@@ -13,8 +13,7 @@ def call(def conf=[:]) {
 	   stage("Checkout Code") {
 		agent any	   
                steps {		       
-                 script{                   
-                   bat 'echo "${checkOut}"'
+                 script{                                      
                    bat "echo ${conf.url}"
 		   checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'

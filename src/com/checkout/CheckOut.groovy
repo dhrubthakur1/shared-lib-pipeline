@@ -16,7 +16,7 @@ public class CheckOut {
                     branches: [[name:  conf.branch ]],
                     userRemoteConfigs: [[ url: conf.url ]]
                   ])
-    steps.bat 'dir'
+    //steps.bat 'dir'
     //def datas = readYaml file: 'build.yml'
     //steps.echo "${datas}"   
     

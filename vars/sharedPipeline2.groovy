@@ -55,7 +55,7 @@ def call(def conf=[:]) {
 	 }
 	stage("Build Process start"){		
 	when {
-        	expression { conf.buildTyoe == "Java" && conf.isBuildRequired == "Yes" }
+        	expression { conf.buildType == "Java" && conf.isBuildRequired == "Yes" }
           }
 		agent any
 			stages{

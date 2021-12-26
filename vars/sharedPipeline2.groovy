@@ -9,22 +9,15 @@ def call(def conf=[:]) {
 	
   pipeline {
        agent none
-       stages {  
-	   agent any    
+       stages {  	     
 	   stage("Checkout Code") {
+		agent any	   
                steps {		       
                  script{                   
                    bat 'echo "${checkOut}"'
                    bat "echo ${conf.url}"
 		   checkOut.startBuild(conf)
 		   bat 'echo "read yml start"'
-		   
-                 }
-               }
-           }  
-	 stage("Set Config") {
-               steps {		       
-                 script{  
 		   def buildData = readYaml (file: 'build.yml') 
 		   def deployData = readYaml (file: 'deploy.yml') 
 		   bat 'echo "read yml start"'
@@ -41,10 +34,9 @@ def call(def conf=[:]) {
 		   conf.put('contextPath', deployData.application.contextPath);	 		   
 		   bat "echo ${env.buildRequired}"
 		   bat "echo conf: ${conf}" 
-		 
-		}
-	       }
-	 }
+                 }
+               }
+           }  
 	stage("Build Process start"){		
 	when {
         	expression { conf.buildType == "Java" && conf.isBuildRequired == "Yes" }

@@ -53,8 +53,7 @@ def call(def conf=[:]) {
 		}
 	       }
 	 }
-	stage("Build Process start"){
-		script{
+	stage("Build Process start"){		
 		if(conf.buildTyoe == "Java" && conf.isBuildRequired == "Yes"){
                   agent any
 			stages{
@@ -70,7 +69,7 @@ def call(def conf=[:]) {
            			}
 			
 			}
-		}}		
+		}	
 	}       
 
        }

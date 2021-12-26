@@ -45,6 +45,7 @@ def call(def conf=[:]) {
 		   bat "echo ${env.buildRequired}"
 	           env.buildRequired="${datas.application.buildRequired}"
 		   conf.put('isBuildRequired', datas.application.buildRequired);
+		  conf.put('duildType', datas.application.buildType);
 		   bat "echo ${conf.isBuildRequired}"
 		  bat "echo ${env.buildRequired}"
 			 bat "echo hi....${conf}" 
@@ -52,16 +53,29 @@ def call(def conf=[:]) {
 		}
 	       }
 	 }
-	stage("Running Testcase") {
-              steps {
-                   //bat "mvn test"
-                script{
-                  if(conf.isBuildRequired == "No"){
-                  mvnBuild.mvnTest()
-                  }
-                }
-               }
-           }
+	stage("Build Process start"){
+		if(conf.buildTyoe == "Java" && conf.isBuildRequired == "Yes"){
+                  agent any
+			stages{
+				stage("Running Testcase") {
+				      steps {
+					   //bat "mvn test"
+					script{
+					  if(conf.isBuildRequired == "No"){
+					  mvnBuild.mvnTest()
+					  }
+					}
+				       }
+           			}
+			
+			}
+		} else {
+		  agent none
+			stages{
+			}
+		}		
+	}       
+
        }
    }
 }

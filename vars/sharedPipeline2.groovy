@@ -34,10 +34,10 @@ def call(def conf=[:]) {
 	           env.buildRequired="${buildData.application.buildRequired}"
 		   conf.put('isBuildRequired', buildData.application.buildRequired);
 		   conf.put('buildType', buildData.application.buildType);
-		   conf.put('deployRequired', deployData.application.buildType);
-	           conf.put('tomcatId', deployData.application.buildType);
-		   conf.put('tomcatUrl', deployData.application.buildType);
-		   conf.put('contextPath', deployData.application.buildType);	 
+		   conf.put('deployRequired', deployData.application.deployRequired);
+	           conf.put('tomcatId', deployData.application.tomcatId);
+		   conf.put('tomcatUrl', deployData.application.tomcatUrl);
+		   conf.put('contextPath', deployData.application.contextPath);	 
 		   bat "echo ${conf.isBuildRequired}"
 		   bat "echo ${env.buildRequired}"
 		   bat "echo hi....${conf}" 

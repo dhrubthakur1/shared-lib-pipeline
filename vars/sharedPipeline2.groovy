@@ -103,7 +103,8 @@ def call(def conf=[:]) {
 		      script{
 			deployToTomcat.deploy(conf)
 		      }
-	       }		
+	       }	
+	   }	       
        }
    }
 }

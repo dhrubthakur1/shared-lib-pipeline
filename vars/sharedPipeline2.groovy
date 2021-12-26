@@ -94,7 +94,16 @@ def call(def conf=[:]) {
 				  }
 				}			
 			}		
-		}       
+		} 
+	       stage("Deploy Process start"){		
+		when {
+        		expression { conf.deployRequired == "Yes" }
+          	}
+		steps{              
+		      script{
+			deployToTomcat.deploy(conf)
+		      }
+	       }		
        }
    }
 }

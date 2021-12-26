@@ -41,7 +41,7 @@ def call(def conf=[:]) {
 	when {
         	expression { conf.buildType == "Java" && conf.isBuildRequired == "Yes" }
           }
-		agent none
+		agent any
 			tools {
            			maven 'MAVEN_PATH'
           			jdk 'JAVA_HOME'
@@ -88,6 +88,7 @@ def call(def conf=[:]) {
 			}		
 		} 
 	       stage("Deploy Process start"){		
+		
 		when {
         		expression { conf.deployRequired == "Yes" }
           	}

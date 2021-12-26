@@ -45,7 +45,7 @@ def call(def conf=[:]) {
 		   bat "echo ${env.buildRequired}"
 	           env.buildRequired="${datas.application.buildRequired}"
 		   conf.put('isBuildRequired', datas.application.buildRequired);
-		  conf.put('duildType', datas.application.buildType);
+		  conf.put('buildType', datas.application.buildType);
 		   bat "echo ${conf.isBuildRequired}"
 		  bat "echo ${env.buildRequired}"
 			 bat "echo hi....${conf}" 

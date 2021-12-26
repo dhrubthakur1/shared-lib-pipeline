@@ -39,7 +39,7 @@ def call(def conf=[:]) {
 		   conf.put('tomcatUrl', deployData.application.tomcatUrl);
 		   conf.put('contextPath', deployData.application.contextPath);	 		   
 		   bat "echo ${env.buildRequired}"
-		   bat "echo hi....${conf}" 
+		   bat "echo conf: ${conf}" 
 		 
 		}
 	       }

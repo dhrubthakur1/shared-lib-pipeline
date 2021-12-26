@@ -54,26 +54,46 @@ def call(def conf=[:]) {
 	       }
 	 }
 	stage("Build Process start"){		
-		 when {
-               
-                expression { conf.buildTyoe == "Java" && conf.isBuildRequired == "No" }
-            }
-		//if(conf.buildTyoe == "Java" && conf.isBuildRequired == "Yes"){
-                  agent any
+	when {
+        	expression { conf.buildTyoe == "Java" && conf.isBuildRequired == "No" }
+          }
+		agent any
 			stages{
+				stage("Checkout Code") {
+				       steps {		       
+					       cleanWs()
+					 script{                   
+					   bat 'echo "${checkOut}"'
+					   bat "echo ${conf.url}"
+					   checkOut.startBuild(conf)					   
+					 }
+				       }
+				   }  
 				stage("Running Testcase") {
-				      steps {
-					   //bat "mvn test"
+				      steps {					   
 					script{
-					  if(conf.isBuildRequired == "No"){
-					  mvnBuild.mvnTest()
-					  }
-					}
+					   mvnBuild.mvnTest()
+					  }					
 				       }
            			}
+				stage("Packing Application") {
+				       steps {					  
+					 script{					   
+					  mvnBuild.startBuild()					  
+					 }
+				       }
+				   }
+				stage ('Archive Artifacts') {
+				  steps {
+				    script{
+				      mvnBuild.archive()
+				    }
+				    //archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+				    //cleanWs()
+				  }
+				}
 			
-			}
-		//}	
+			}		
 	}       
 
        }

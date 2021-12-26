@@ -20,10 +20,8 @@ def call(def conf=[:]) {
 		   def buildData = readYaml (file: 'build.yml') 
 		   def deployData = readYaml (file: 'deploy.yml') 
 		   bat 'echo "read yml start"'
-		   bat "echo ${buildData}"
-		   bat "echo ${buildData.application.buildRequired}"
-	           bat "echo ${buildData.application.buildType}"
-		   bat "echo ${env.buildRequired}"
+		   bat "echo ${buildData}"	
+		   bat "echo ${deployData}"
 	           env.buildRequired=buildData.application.buildRequired
 		   conf.put('isBuildRequired', buildData.application.buildRequired);
 		   conf.put('buildType', buildData.application.buildType);

@@ -48,7 +48,7 @@ def call(def conf=[:]) {
 	when {
         	expression { conf.buildType == "Java" && conf.isBuildRequired == "Yes" }
           }
-		agent any
+		agent none
 			tools {
            			maven 'MAVEN_PATH'
           			jdk 'JAVA_HOME'

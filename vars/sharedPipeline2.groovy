@@ -88,7 +88,7 @@ def call(def conf=[:]) {
 			}		
 		} 
 	       stage("Deploy Process start"){		
-		
+		agent any
 		when {
         		expression { conf.deployRequired == "Yes" }
           	}

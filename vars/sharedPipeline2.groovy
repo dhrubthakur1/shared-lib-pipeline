@@ -8,8 +8,9 @@ def call(def conf=[:]) {
 	def deployToTomcat = new DeployToTomcat(this)
 	
   pipeline {
-       agent any
-       stages {         	   
+       agent none
+       stages {  
+	   agent any    
 	   stage("Checkout Code") {
                steps {		       
                  script{                   

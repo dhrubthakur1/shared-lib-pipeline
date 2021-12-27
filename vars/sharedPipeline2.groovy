@@ -10,7 +10,7 @@ def call(def conf=[:]) {
   pipeline {
        agent none
        stages {  	     
-	   stage("Checkout Code") {
+	   stage("Checkout Code for read Spec file") {
 		agent any	   
                steps {		       
                  script{                                      

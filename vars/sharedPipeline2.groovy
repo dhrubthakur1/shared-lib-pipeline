@@ -53,7 +53,7 @@ def call(def conf=[:]) {
 				   }
 				stage("Checkout Code") {
 				       steps {		       
-					       cleanWs()
+					 cleanWs()
 					 script{                   
 					   bat 'echo "${checkOut}"'
 					   bat "echo ${conf.url}"
